@@ -3,7 +3,8 @@
 \input macros
 
 \titlepage
-\vbox to 8pc{
+\pageno=-3
+\vbox to 6pc{
 \bookmark{1}{目录}
 \centerline{\titlefont 目录}
 \vfill}
@@ -15,11 +16,13 @@
   \ifodd\counter \kern-10pt \fi
   \leaders\hbox to 20pt{\ifodd\counter \kern13pt \else\kern3pt \fi
     .\hss}}
-\baselineskip 15pt plus 5pt
+\baselineskip 25pt plus 5pt
 \def\\#1. #2. #3.{\line{\strut
     \hbox to\parindent{\bf\hbox to 1em{\hss#1}\hss}%
-    \rm#2\diamondleaders\hfil\hbox to 2em{\hss#3}}}
-%\\1. 此名有诗意. 1.
+    \rm#2\hfil\hbox to 2em{\hss#3}}}
+\\ . 前言. V.
+\\1. 禅修：为何修禅？. 1.
+\\2. 何非修禅. 11.
 \null % 17 lines so far to balance the 23 on the other page
 \null % 18
 \null % 19
@@ -27,6 +30,11 @@
 \null % 21
 \null % 22
 \null % 23
+\def\leftheadline{}
+\def\rightheadline{}
+\vfill
+\eject
+\null
 \vfill
 \eject
 \endgroup

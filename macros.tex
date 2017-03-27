@@ -226,9 +226,11 @@
 
 \newcount\footnoteno
 \let\oldfootnote=\footnote  
-\def\footnote#1{\oldfootnote{$^{\the\footnoteno}$}{#1}\global\advance\footnoteno by 1}
+\def\footnote#1{$\!\!^{\the\footnoteno}$\oldfootnote{}{\the\footnoteno\ #1}\global\advance\footnoteno by 1}
 \def\myfootnote#1{\footnote{【译注】#1}}
-\def\myfootnoteaq#1{$\!\!$\footnote{【译注】#1}}
+\def\myfootnoteaq#1{\footnote{【译注】#1}}
+
+\def\folio{\ifnum\pageno<0 \uppercase\expandafter{\romannumeral-\pageno} \else\number\pageno \fi}
 
 \def\beginchapter#1 #2#3. #4\par{\global\exno=0
   \subsecno=0
@@ -245,11 +247,11 @@
   {\def\TeX{T\kern-.2em\lower.5ex\hbox{E}\kern-.06em X}
     \def\MF{{\vbox to30pt{}\manual ()*+,-.*}}
     \def\\{#3}
-    \ifx\empty\\ \centerline{\chapfont 第#2章}
-    \else\centerline{\chapfont 第#2\kern-.06em#3章}\fi
+    \ifx\empty\\ \centerline{\chapfont 第#2章}%
+    \else\centerline{\chapfont 第#2\kern-.06em#3章}\fi%
     \vskip 1pc
     \baselineskip 20pt \lineskiplimit \titlelsl \lineskip 10pt
-    \centerline{\titlefont#4}
+    \centerline{\ \ \titlefont#4}
     \vskip 4pc
     %\special{pdf:image width 348pt height 0in depth 348pt (artwork/#1\chapno.png)}
     %\vfill\eject

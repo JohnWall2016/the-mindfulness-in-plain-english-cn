@@ -163,10 +163,7 @@
 \def\onepageout#1{\shipout\vbox{ % here we define one page of output
     \offinterlineskip % butt the boxes together
     \vbox to 3pc{ % this part goes on top of the 44pc pages
-      \iftitle % the next is used for title pages
-        \global\titlefalse % reset the titlepage switch
-        %\setcornerrules % for camera alignment
-      \else\ifodd\pageno \rightheadline\else\leftheadline\fi\fi
+      \iftitle\else\ifodd\pageno \rightheadline\else\leftheadline\fi\fi
       \vfill} % this completes the \vbox to 3pc
     \vbox to \pageheight{
       \ifvoid\margin\else % marginal info is present
@@ -175,7 +172,13 @@
       \ifvoid\footins\else % footnote info is present
         \vskip\skip\footins \kern-3pt
         \hrule height\ruleht width\pagewidth \kern-\ruleht \kern3pt
-        \unvbox\footins\fi
+        \unvbox\footins
+        \fi
+      \iftitle%
+        \vskip 1pc
+        \centerline{\tenbf\folio}
+        \global\titlefalse
+      \fi
       \boxmaxdepth=\maxdepth
       } % this completes the \vbox to \pageheight
     }
