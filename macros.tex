@@ -226,9 +226,11 @@
 
 \newcount\footnoteno
 \let\oldfootnote=\footnote  
-\def\footnote#1{$\!\!^{\the\footnoteno}$\oldfootnote{}{\the\footnoteno\ #1}\global\advance\footnoteno by 1}
-\def\myfootnote#1{\footnote{【译注】#1}}
-\def\myfootnoteaq#1{\footnote{【译注】#1}}
+\def\footnotemy#1{\oldfootnote{}{{\hang\smash{\hbox to 0pt{%
+          \hskip-\hangindent\the\footnoteno\hfill}}}#1}\global\advance\footnoteno by 1}
+\def\footnote#1{$\!\!^{\the\footnoteno}${\parindent=1.7pc\footnotemy{#1}}}
+\def\myfootnote#1{$\!\!^{\the\footnoteno}${\parindent=1.7pc\footnotemy{【译注】#1}}}
+\def\myfootnoteaq#1{$\!\!^{\the\footnoteno}${\parindent=1.7pc\footnotemy{【译注】#1}}}
 
 \def\folio{\ifnum\pageno<0 \uppercase\expandafter{\romannumeral-\pageno} \else\number\pageno \fi}
 
@@ -284,6 +286,8 @@
 \baselineskip=18pt
 \lineskip=2pt
 \twelvepoint
+
+\parindent=2pc
 
 %% paper dimensions
 
