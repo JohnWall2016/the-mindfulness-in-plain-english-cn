@@ -227,7 +227,8 @@
 \newcount\footnoteno
 \let\oldfootnote=\footnote  
 \def\footnotemy#1{\oldfootnote{}{{\hang\smash{\hbox to 0pt{%
-          \hskip-\hangindent\the\footnoteno\hfill}}}#1}\global\advance\footnoteno by 1}
+          \hskip-\hangindent\hskip+0.5pc\the\footnoteno\hfill}}}#1}%
+  \global\advance\footnoteno by 1}
 \def\footnote#1{$\!\!^{\the\footnoteno}${\parindent=1.7pc\footnotemy{#1}}}
 \def\myfootnote#1{$\!\!^{\the\footnoteno}${\parindent=1.7pc\footnotemy{【译注】#1}}}
 \def\myfootnoteaq#1{$\!\!^{\the\footnoteno}${\parindent=1.7pc\footnotemy{【译注】#1}}}
