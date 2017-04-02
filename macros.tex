@@ -266,9 +266,9 @@
   \bookmark{2}{\the\subsecno. #1}
   \noindent{\bf \the\subsecno.\enspace#1.\enspace}}
 
-\outer\def\subsectnon#1。 {\bigbreak
+\outer\def\subsectnon#1 \par{\bigbreak
   \bookmark{2}{#1}
-  \noindent{\sectfont #1。\enspace}\smallbreak}
+  \noindent{\sectfont #1\enspace}\smallbreak}
 
 \def\beginlines{\par\begingroup\baselineskip=12pt\nobreak\medskip\parindent\z@ \obeylines
   \hrule\kern1pt\nobreak \everypar{\strut}}
