@@ -236,7 +236,7 @@
 
 \def\folio{\ifnum\pageno<0 \uppercase\expandafter{\romannumeral-\pageno} \else\number\pageno \fi}
 
-\def\beginchapter#1 #2#3. #4\par{\global\exno=0
+\def\beginchapter#1 #2#3. #4 \par{\global\exno=0
   \subsecno=0
   \footnoteno=1
   \def\chapno{#2#3}
@@ -255,7 +255,7 @@
     \else\centerline{\chapfont 第#2\kern-.06em#3章}\fi%
     \vskip 1pc
     \baselineskip 20pt \lineskiplimit \titlelsl \lineskip 10pt
-    \centerline{\ \ \titlefont#4}
+    \centerline{\titlefont#4}
     \vskip 4pc
     %\special{pdf:image width 348pt height 0in depth 348pt (artwork/#1\chapno.png)}
     %\vfill\eject
