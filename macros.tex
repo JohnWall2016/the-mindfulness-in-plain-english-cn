@@ -262,6 +262,9 @@
   } % output the chapter title page
   \twelvepoint}
 
+\outer\def\endchapter{\vfill\eject%
+  \ifodd\pageno\else\null\vfill\eject\fi}
+
 \outer\def\subsection#1. {\medbreak\advance\subsecno by 1
   \bookmark{2}{\the\subsecno. #1}
   \noindent{\bf \the\subsecno.\enspace#1.\enspace}}
